@@ -74,3 +74,43 @@ Since p-value (0.001146) is less than 0.05, the null hypothesis is rejected.
 ## Business Interpretation
 
 The treatment group achieved a significantly higher paid conversion rate than the control group. This indicates that the experimental treatment positively influenced user conversions and should be considered for implementation.
+
+
+# Task 8: Guardrail Metrics Evaluation
+
+The treatment group increased paid conversions, but additional guardrail metrics were evaluated before making a business recommendation.
+
+## 1. Refund Rate
+- Control: 0.00%
+- Treatment: 0.42%
+
+The treatment group showed a small increase in refund requests. However, the refund rate remains very low and does not currently present a major business risk.
+
+## 2. Support Ticket Rate
+- Control: 21.93%
+- Treatment: 37.20%
+
+Support ticket rate increased noticeably in the treatment group. This suggests users required more assistance, which may increase operational costs and indicate usability issues. This is an important risk that should be monitored.
+
+## 3. Average Days to Convert
+- Control: 8.86 days
+- Treatment: 6.40 days
+
+Users in the treatment group converted faster than the control group. This is a positive outcome and reduces the customer acquisition cycle.
+
+## 4. Average Engagement Score
+- Control: 57.05
+- Treatment: 62.90
+
+Engagement improved in the treatment group, suggesting that users interacted more actively with the product.
+
+## 5. Revenue Quality
+- Average Revenue per Converted User
+  - Control: 1630.10
+  - Treatment: 770.41
+
+Although conversions increased, revenue generated per converted user decreased. This indicates a potential decline in revenue quality and should be investigated before a full rollout.
+
+## Overall Assessment
+
+While the treatment significantly improved paid conversion rate, the increase in support tickets and the decline in revenue per converted user indicate potential risks. A phased rollout with further investigation is recommended rather than an immediate full deployment.
