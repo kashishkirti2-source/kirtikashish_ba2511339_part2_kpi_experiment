@@ -49,3 +49,20 @@ An increase in Paid Conversion Rate leads to:
 
 Focusing only on Paid Conversion Rate may create unintended problems. Users might convert initially but later request refunds, raise more support tickets, show lower engagement, or churn quickly. Therefore, guardrail metrics such as Refund Rate, Support Ticket Rate, Engagement Score, and Days to Convert must also be monitored before making the final business recommendation.
 
+
+
+## Task 4: Data Preparation
+
+The experiment dataset was reviewed and prepared before analysis.
+
+### Data Quality Checks Performed
+
+- Checked missing values across all columns.
+- Missing values in categorical columns (such as device_type and traffic_source) were filled with "Unknown".
+- Missing engagement_score values (14 records) were imputed using the median value (59.9).
+- Missing days_to_convert values were retained because they represent users who did not convert.
+- Verified experiment group counts (Control: 693, Treatment: 715).
+- Checked duplicate user IDs and identified 16 duplicate records. These were retained because no business rule required their removal.
+- Verified binary fields (visited_landing_page, started_trial, completed_onboarding, converted_to_paid, and refund_requested). All contained only valid values (0 and 1).
+- Reviewed revenue_30d values for abnormal outliers. No unrealistic values requiring treatment were identified.
+- Reviewed region distribution across Control and Treatment groups. The distribution was reasonably balanced for comparison.
