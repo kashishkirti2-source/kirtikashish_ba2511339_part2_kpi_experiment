@@ -1,4 +1,4 @@
-# Hypothesis Test Notes
+# Task 6: Hypothesis Test Notes
 
 ## Metric Being Tested
 
@@ -37,3 +37,40 @@ One-tailed test
 
 If the Treatment group shows a statistically significant increase in paid conversion rate, the new experiment should be rolled out to all users. Otherwise, the current experience should be retained or the experiment should be revised before deployment.
 
+
+
+
+# Task 7: Hypothesis Test Analysis
+
+## Test Used
+Chi-Square Test of Independence
+
+## Primary Metric
+Paid Conversion Rate
+
+## Test Inputs
+
+| Group | Converted | Not Converted | Total |
+|-------|-----------|---------------|------:|
+| Control | 22 | 671 | 693 |
+| Treatment | 50 | 665 | 715 |
+
+## Significance Level
+α = 0.05
+
+## Test Output
+
+P-value = 0.001146
+
+## Decision Rule
+
+- If p-value < 0.05 → Reject Null Hypothesis.
+- If p-value ≥ 0.05 → Fail to Reject Null Hypothesis.
+
+## Result
+
+Since p-value (0.001146) is less than 0.05, the null hypothesis is rejected.
+
+## Business Interpretation
+
+The treatment group achieved a significantly higher paid conversion rate than the control group. This indicates that the experimental treatment positively influenced user conversions and should be considered for implementation.
