@@ -1,68 +1,126 @@
-# Task 1: Business Problem Statement
+# Part 2: KPI Framework, Business Experiment Analysis & Decision Recommendation
 
-The company has introduced a new onboarding and activation campaign for new users. An A/B experiment was conducted by dividing users into two groups: a **Control Group**, which experienced the existing onboarding process, and a **Treatment Group**, which experienced the new onboarding campaign.
+## Business Context
 
-The primary business decision is to determine whether the new onboarding experience should be launched to all users based on its performance.
+A subscription-based digital product company launched a new onboarding and activation campaign to improve user conversion and early engagement. An A/B experiment was conducted where users were divided into a Control group (existing onboarding) and a Treatment group (new onboarding). The objective was to determine whether the new onboarding experience should be rolled out to all users based on business performance and statistical evidence.
 
-This decision impacts business leadership, the product team, the marketing team, and future users of the platform.
+---
 
-The primary metric expected to improve is the **Paid Conversion Rate**, as increasing the number of users who become paying customers directly supports business growth and revenue.
+# Dataset Description
 
-Before making a final recommendation, it is also important to monitor potential risks such as increased refund requests, higher support ticket rates, lower engagement scores, and longer conversion times. An improvement in conversion alone is not sufficient if it negatively affects user experience or revenue quality.
+The dataset contains user-level experiment data for both Control and Treatment groups. It includes user information, experiment group assignment, onboarding funnel metrics, revenue, engagement score, support tickets, refund requests, conversion information, and customer segments such as region, device type, traffic source, and plan type.
 
-The final recommendation should therefore be supported by experiment results, hypothesis testing, comparison of key performance metrics, and evaluation of guardrail metrics to ensure that the treatment delivers sustainable business value.
+---
 
-
-# Task 2: North Star Metric
-
-## Selected North Star Metric
+# North Star Metric Selected
 
 **Paid Conversion Rate**
 
-### Why this is the North Star Metric
+This metric was selected because it directly measures the percentage of users who become paying customers. Improving this metric supports business growth, customer acquisition, and revenue generation.
 
-Paid Conversion Rate is the most important success metric because it directly measures how many users become paying customers after experiencing the onboarding process. Since the company's objective is to increase subscriptions and revenue, this metric best represents the success of the new onboarding campaign.
+---
 
-### Why Other Metrics Are Supporting Metrics
+# KPI Tree Summary
 
-The following metrics help explain user behaviour but do not directly represent business success:
+The KPI Tree was created using Paid Conversion Rate as the North Star Metric.
 
-* Landing Page Visit Rate measures initial interest.
-* Trial Start Rate measures user activation.
-* Onboarding Completion Rate measures onboarding effectiveness.
-* Average Revenue Per User measures revenue performance.
-* Engagement Score measures user activity.
-* Refund Rate and Support Ticket Rate monitor customer experience and potential risks.
+Primary KPI Drivers:
 
-These metrics support decision-making but ultimately contribute to improving the Paid Conversion Rate.
+* User Acquisition
+* User Activation
+* User Experience
 
-### Connection to Business Growth
+Supporting Metrics:
 
-An increase in Paid Conversion Rate leads to:
+* Landing Page Visit Rate
+* Trial Start Rate
+* Onboarding Completion Rate
+* Engagement Score
+* Average Revenue Per User
 
-* Higher subscription revenue.
-* Better customer acquisition efficiency.
-* Improved return on marketing investment.
-* Sustainable long-term business growth.
+Guardrail Metrics:
 
-### Risk of Optimizing Only This Metric
+* Refund Rate
+* Support Ticket Rate
+* Average Days to Convert
+* Revenue Quality
 
-Focusing only on Paid Conversion Rate may create unintended problems. Users might convert initially but later request refunds, raise more support tickets, show lower engagement, or churn quickly. Therefore, guardrail metrics such as Refund Rate, Support Ticket Rate, Engagement Score, and Days to Convert must also be monitored before making the final business recommendation.
+---
 
+# Experiment Analysis Approach
 
+The experiment dataset was prepared before analysis by performing the following checks:
 
-## Task 4: Data Preparation
+* Missing value validation
+* Group count verification
+* Duplicate user ID detection
+* Binary value validation
+* Revenue outlier review
+* Segment distribution analysis
 
-The experiment dataset was reviewed and prepared before analysis.
+After data validation, experiment summary metrics were calculated for both Control and Treatment groups using Pivot Tables and Excel formulas.
 
-### Data Quality Checks Performed
+A Chi-Square Test of Independence was performed to determine whether the improvement in Paid Conversion Rate was statistically significant.
 
-- Checked missing values across all columns.
-- Missing values in categorical columns (such as device_type and traffic_source) were filled with "Unknown".
-- Missing engagement_score values (14 records) were imputed using the median value (59.9).
-- Missing days_to_convert values were retained because they represent users who did not convert.
-- Verified experiment group counts (Control: 693, Treatment: 715).
-- Checked duplicate user IDs and identified 16 duplicate records. These were retained because no business rule required their removal.
-- Verified binary fields (visited_landing_page, started_trial, completed_onboarding, converted_to_paid, and refund_requested). All contained only valid values (0 and 1).
-- Reviewed revenue_30d values for abnormal outliers. No unrealistic values requiring treatment were identified.
-- Reviewed region distribution across Control and Treatment groups. The distribution was reasonably balanced for comparison.
+---
+
+# Hypothesis Test Summary
+
+* Test Used: Chi-Square Test of Independence
+* Primary Metric: Paid Conversion Rate
+* Significance Level: 0.05
+* P-value: 0.001146
+
+Since the p-value is less than 0.05, the null hypothesis was rejected. The Treatment group showed a statistically significant improvement in Paid Conversion Rate compared with the Control group.
+
+---
+
+# Guardrail Metrics Considered
+
+The following guardrail metrics were evaluated before making a recommendation:
+
+* Refund Rate
+* Support Ticket Rate
+* Average Days to Convert
+* Average Engagement Score
+* Revenue Quality (Average Revenue per Converted User)
+
+The analysis showed that although conversions increased, Support Ticket Rate also increased and Revenue Quality declined, indicating potential risks.
+
+---
+
+# Final Recommendation
+
+**Recommendation: Continue Testing**
+
+The Treatment significantly improved Paid Conversion Rate and user engagement while reducing the average time to convert.
+
+However, higher Support Ticket Rates and lower Average Revenue per Converted User indicate business risks that should be investigated before a complete rollout.
+
+A phased rollout or additional experimentation is recommended.
+
+---
+
+# Assumptions and Limitations
+
+## Assumptions
+
+* The dataset accurately represents user behavior.
+* Experiment groups were randomly assigned.
+* All binary variables contain valid values.
+* Revenue values are correctly recorded.
+
+## Limitations
+
+* Results are based on a single experiment.
+* Long-term customer retention was not evaluated.
+* External business factors were not considered.
+* Additional experiments may be required before a full rollout.
+
+---
+
+# Screenshots Included
+
+* summary_metrics.png
+* hypothesis_test_output.png
+* kpi_tree_preview.png
